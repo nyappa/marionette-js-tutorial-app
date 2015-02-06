@@ -1,0 +1,71 @@
+.ui-modals-common {
+    .ui-modals {
+        display:none;
+        top: 40px;
+        width: 410px;
+        background-color: $white;
+        @include border-radius(2px);
+        @include box-shadow(rgba(0, 0, 0, 0.6) 0px 0px 3px);
+        color: #808080;
+        font-size: 13px;
+        font-weight: normal;
+        line-height: 18px;
+        margin: 0 auto;
+        position: fixed;
+        z-index: 99999;
+        h3 {
+            padding:10px;
+            font-weight: bold;
+        }
+        .modal-footer {
+            text-align:right;
+            padding-right: 30px;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            a {
+                margin-right:10px;
+            }
+        }
+        .ui-loading-overlay {
+            display:none;
+            background-color: #000000;
+            width: 100%;
+            height: 200px;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            vertical-align: middle;
+            visibility: visible;
+            z-index: 100000;
+            color:adjust-lightness($white, -5);
+            .modal-loading-message {
+                width: 100%;
+                height: 200px;
+                display:table-cell;
+                text-align:center;
+                vertical-align: middle;
+                img {
+                    vertical-align: middle;
+                }
+            }
+        }
+        .input-line {
+            width:280px;
+        }
+        .error {
+        }
+    }
+    .ui-modals-overlay {
+        display:none;
+        background-color: #000000;
+        height: 465px;
+        @include opacity(0.1);
+        visibility: visible;
+        display: block;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 99998;
+    }
+}

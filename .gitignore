@@ -1,0 +1,10 @@
+*.swp
+/log
+/log/*
+/*.lock
+/grunt/node_modules
+/vendor/bundle
+
+*.pid
+/grunt/.sass-cache
+/grunt/.sass-cache/*

@@ -1,0 +1,189 @@
+@import "compass";
+@import "compass/reset";
+@import "compass/utilities/sprites";
+@import "compass/typography/links/link-colors";
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "color_set";
+@import "font_set";
+
+html,body {
+  width:100%;
+  line-height: 25px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  background-color:$green;
+  padding:15px;
+  color:$white;
+  font-weight: bold;
+  border-bottom:solid 1px $gray;
+  @include box-shadow($gray 0px 2px 2px);
+  position: fixed;
+  width: 100%;
+  top:0px;
+  a {
+    color:$white;
+  }
+}
+
+.menu {
+  transition: all 0.20s ease 0s;
+  background-color:$green;
+  color:$white;
+  float: right;
+  padding: 10px 15px;
+  font-weight: bold;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  font-size: 25px;
+  cursor: pointer;
+  &:hover {
+    color:adjust-lightness($white, -15);
+  }
+}
+
+ul {
+    margin-top:45px;
+    li {
+        border-bottom:solid 1px $gray;
+        padding:20px 10px;
+        cursor: pointer;
+        &:before {
+            font-size:20px;
+        }
+    }
+}
+
+input[type=text], textarea {
+    width:100%;
+    padding:10px;
+    border:solid 1px adjust-lightness($gray, 20);
+    @include border-radius(5px);
+    &.title {
+        margin-bottom:10px;
+    }
+    &.text-content {
+        height:200px;
+        margin-bottom:10px;
+    }
+}
+
+input[type=button] {
+    border:solid 1px adjust-lightness($green, -5);
+    background-color:$green;
+    padding:5px 80px;
+    cursor: pointer;
+    color:$white;
+    font-weight: bold;
+    @include border-radius(5px);
+    &:hover {
+        background-color:adjust-lightness($green, 10);
+    }
+}
+
+.main-box {
+    margin-top:60px;
+    padding:10px;
+    @include box-shadow($gray 2px 2px 5px);
+    font-size:16px;
+    &.detail {
+        padding-bottom:70px;
+    }
+    h2 {
+        font-weight: bold;
+        margin-bottom:10px;
+        &.nico-status {
+            &:before {
+                font-size: 30px;
+                vertical-align: middle;
+            }
+        }
+    }
+    a {
+        font-weight: bold;
+        color:$orange;
+    }
+}
+
+.add {
+    display:inline-block;
+    background-color:$green;
+    @include border-radius(50%);
+    @include box-shadow($gray 2px 2px 5px);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color:$white;
+    padding: 19px 16px 16px 20px;
+    transition: all 0.20s ease 0s;
+    &:hover {
+        background-color:adjust-lightness($green, 10);
+    }
+    &.word {
+        color:$green;
+        @include opacity(0.9);
+        background-color:$white;
+        border:solid 1px $green;
+        &:hover {
+            color:$white;
+            background-color:$green;
+            border:solid 1px $white;
+        }
+    }
+}
+
+.modal-body {
+    .modal-cancel {
+        float:right;
+        color:$green;
+        font-size: 30px;
+    }
+    .options-menu {
+        padding:20px;
+        a {
+            color:$green;
+            font-size:40px;
+            &.icon-remove {
+                float:right;
+                font-size:30px;
+                margin-bottom: 20px;
+            }
+        }
+        .status-menu {
+            padding-bottom:20px;
+            margin-bottom:20px;
+            border-bottom:solid 1px $gray;
+            h4 {
+               margin-bottom: 15px;
+               [class^="icon-"] {
+                   font-size:20px;
+                   vertical-align: middle;
+               }
+            }
+        }
+    }
+}
+
+.word-detail-modal {
+    h3 {
+        font-size:30px;
+    }
+    .meaning {
+        padding:10px;
+        display: block;
+    }
+}
+
+.word-modal {
+    .add-form {
+        padding:20px;
+    }
+}
+
+@import "modal";

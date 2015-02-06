@@ -1,0 +1,456 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: 'icon';
+  src: url("/fonts/icomoon.eot");
+  src: url("/fonts/icomoon.eot") format("embedded-opentype"), url("/fonts/icomoon.woff") format("woff"), url("/fonts/icomoon.ttf") format("truetype"), url("/fonts/icomoon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icon',Arial,"Droid Sans",sans-serif;
+  speak: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  margin-right: 5px;
+}
+
+.icon-cog:before {
+  content: "\e68e";
+}
+
+.icon-neutral:before {
+  content: "\e6ed";
+  color: #afb42b;
+}
+
+.icon-confused:before {
+  content: "\e6eb";
+  color: #9e9e9e;
+}
+
+.icon-smiley:before {
+  content: "\e6d9";
+  color: #ff9800;
+}
+
+.icon-grin:before {
+  content: "\e6e1";
+  color: #e65100;
+}
+
+.icon-cancel-circle:before {
+  content: "\e6fa";
+}
+
+.icon-undo:before {
+  content: "\e666";
+}
+
+.icon-menu:before {
+  content: "\e6b8";
+}
+
+.icon-plus:before {
+  content: "\e702";
+}
+
+.icon-pen:before {
+  content: "\e608";
+}
+
+.icon-coin:before {
+  content: "\e638";
+}
+
+.icon-remove:before {
+  content: "\e6a8";
+}
+
+.icon-warning:before {
+  content: "\e6f4";
+}
+
+.icon-help:before {
+  content: "\e6a2";
+}
+
+.icon-dashboard:before {
+  content: "\e6a2";
+}
+
+.icon-users:before {
+  content: "\e673";
+}
+
+.icon-user:before {
+  content: "\e672";
+}
+
+.icon-clock:before {
+  content: "\e647";
+}
+
+.icon-search:before {
+  content: "\e67f";
+}
+
+.icon-play:before {
+  content: "\e70a";
+}
+
+.icon-checkmark-circle:before {
+  content: "\e6fb";
+}
+
+.icon-profile:before {
+  content: "\e623";
+}
+
+.icon-folder-open:before {
+  content: "\e62f";
+}
+
+.icon-stack:before {
+  content: "\e62d";
+}
+
+.icon-eye:before {
+  content: "\e6c6";
+}
+
+.icon-support:before {
+  content: "\e63b";
+}
+
+.icon-info:before {
+  content: "\e6f7";
+}
+
+.logo-devon:before {
+  content: "\e601";
+}
+
+html, body {
+  width: 100%;
+  line-height: 25px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  background-color: #afb42b;
+  padding: 15px;
+  color: #f9fbe7;
+  font-weight: bold;
+  border-bottom: solid 1px #9e9e9e;
+  -webkit-box-shadow: #9e9e9e 0px 2px 2px;
+  -moz-box-shadow: #9e9e9e 0px 2px 2px;
+  box-shadow: #9e9e9e 0px 2px 2px;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+}
+h1 a {
+  color: #f9fbe7;
+}
+
+.menu {
+  transition: all 0.20s ease 0s;
+  background-color: #afb42b;
+  color: #f9fbe7;
+  float: right;
+  padding: 10px 15px;
+  font-weight: bold;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.menu:hover {
+  color: #e9f0a5;
+}
+
+ul {
+  margin-top: 45px;
+}
+ul li {
+  border-bottom: solid 1px #9e9e9e;
+  padding: 20px 10px;
+  cursor: pointer;
+}
+ul li:before {
+  font-size: 20px;
+}
+
+input[type=text], textarea {
+  width: 100%;
+  padding: 10px;
+  border: solid 1px #d1d1d1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+input[type=text].title, textarea.title {
+  margin-bottom: 10px;
+}
+input[type=text].text-content, textarea.text-content {
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+input[type=button] {
+  border: solid 1px #9b9f26;
+  background-color: #afb42b;
+  padding: 5px 80px;
+  cursor: pointer;
+  color: #f9fbe7;
+  font-weight: bold;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+input[type=button]:hover {
+  background-color: #ccd141;
+}
+
+.main-box {
+  margin-top: 60px;
+  padding: 10px;
+  -webkit-box-shadow: #9e9e9e 2px 2px 5px;
+  -moz-box-shadow: #9e9e9e 2px 2px 5px;
+  box-shadow: #9e9e9e 2px 2px 5px;
+  font-size: 16px;
+}
+.main-box.detail {
+  padding-bottom: 70px;
+}
+.main-box h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.main-box h2.nico-status:before {
+  font-size: 30px;
+  vertical-align: middle;
+}
+.main-box a {
+  font-weight: bold;
+  color: #ff9800;
+}
+
+.add {
+  display: inline-block;
+  background-color: #afb42b;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: #9e9e9e 2px 2px 5px;
+  -moz-box-shadow: #9e9e9e 2px 2px 5px;
+  box-shadow: #9e9e9e 2px 2px 5px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #f9fbe7;
+  padding: 19px 16px 16px 20px;
+  transition: all 0.20s ease 0s;
+}
+.add:hover {
+  background-color: #ccd141;
+}
+.add.word {
+  color: #afb42b;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  opacity: 0.9;
+  background-color: #f9fbe7;
+  border: solid 1px #afb42b;
+}
+.add.word:hover {
+  color: #f9fbe7;
+  background-color: #afb42b;
+  border: solid 1px #f9fbe7;
+}
+
+.modal-body .modal-cancel {
+  float: right;
+  color: #afb42b;
+  font-size: 30px;
+}
+.modal-body .options-menu {
+  padding: 20px;
+}
+.modal-body .options-menu a {
+  color: #afb42b;
+  font-size: 40px;
+}
+.modal-body .options-menu a.icon-remove {
+  float: right;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.modal-body .options-menu .status-menu {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #9e9e9e;
+}
+.modal-body .options-menu .status-menu h4 {
+  margin-bottom: 15px;
+}
+.modal-body .options-menu .status-menu h4 [class^="icon-"] {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.word-detail-modal h3 {
+  font-size: 30px;
+}
+.word-detail-modal .meaning {
+  padding: 10px;
+  display: block;
+}
+
+.word-modal .add-form {
+  padding: 20px;
+}
+
+.ui-modals-common .ui-modals {
+  display: none;
+  top: 40px;
+  width: 410px;
+  background-color: #f9fbe7;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 3px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 3px;
+  color: #808080;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  margin: 0 auto;
+  position: fixed;
+  z-index: 99999;
+}
+.ui-modals-common .ui-modals h3 {
+  padding: 10px;
+  font-weight: bold;
+}
+.ui-modals-common .ui-modals .modal-footer {
+  text-align: right;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+.ui-modals-common .ui-modals .modal-footer a {
+  margin-right: 10px;
+}
+.ui-modals-common .ui-modals .ui-loading-overlay {
+  display: none;
+  background-color: #000000;
+  width: 100%;
+  height: 200px;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  vertical-align: middle;
+  visibility: visible;
+  z-index: 100000;
+  color: #f4f7d1;
+}
+.ui-modals-common .ui-modals .ui-loading-overlay .modal-loading-message {
+  width: 100%;
+  height: 200px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.ui-modals-common .ui-modals .ui-loading-overlay .modal-loading-message img {
+  vertical-align: middle;
+}
+.ui-modals-common .ui-modals .input-line {
+  width: 280px;
+}
+.ui-modals-common .ui-modals-overlay {
+  display: none;
+  background-color: #000000;
+  height: 465px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  visibility: visible;
+  display: block;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99998;
+}

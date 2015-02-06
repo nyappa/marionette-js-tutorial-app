@@ -1,0 +1,3 @@
+prod:
+  adapter: "sqlite3"
+  database: "db/sample.db"

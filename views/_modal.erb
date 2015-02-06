@@ -1,0 +1,62 @@
+<div class="js-modal"></div>
+
+<script type="text/template" id="word-detail-template">
+<div class="modal-body word-detail-modal js-modal-body">
+  <h3>
+    {{word}}
+    <a href="#" class="js-modal-cancel modal-cancel icon-cancel-circle"></a>
+  </h3>
+  <span class="meaning">{{meaning}}</span>
+  <div class="options-menu">
+    <div class="status-menu">
+      <h4>Please select status. now status is <span class="icon-{{status}}"></span></h4>
+      <a href="#" class="icon-confused js-change-status" data-status="confused"></a>
+      <a href="#" class="icon-neutral js-change-status" data-status="neutral"></a>
+      <a href="#" class="icon-smiley js-change-status" data-status="smiley"></a>
+      <a href="#" class="icon-grin js-change-status" data-status="grin"></a>
+    </div>
+    <a href="#" class="js-delete icon-remove"></a>
+  </div>
+</div>
+</script>
+
+
+<script type="text/template" id="text-options-template">
+<div class="modal-body text-modal js-modal-body">
+  <h3>
+    Text Options
+    <a href="#" class="js-modal-cancel modal-cancel icon-cancel-circle"></a>
+  </h3>
+  <div class="options-menu">
+    <div class="status-menu">
+      <h4>Please select status. now status is <span class="icon-{{status}}"></span></h4>
+      <a href="#" class="icon-confused js-change-status" data-status="confused"></a>
+      <a href="#" class="icon-neutral js-change-status" data-status="neutral"></a>
+      <a href="#" class="icon-smiley js-change-status" data-status="smiley"></a>
+      <a href="#" class="icon-grin js-change-status" data-status="grin"></a>
+    </div>
+    <a href="#" class="js-text-delete icon-remove"></a>
+  </div>
+</div>
+</script>
+
+<script type="text/template" id="word-add-template">
+<div class="modal-body word-modal js-modal-body">
+  <h3>
+    Add word
+    <a href="#" class="js-modal-cancel modal-cancel icon-cancel-circle"></a>
+  </h3>
+  <div class="add-form">
+    <input type="text" name="word" class="title" placeholder="Please add the word in text">
+    <textarea name="meaning" class="text-content" placeholder="please add meaning for word."></textarea>
+    <input type="button" class="js-add-word" value="Word add">
+  </div>
+</div>
+</script>
+
+<script type="text/template" id="modal-template">
+  <div class="ui-modals js-ui-modals">
+    <div class="js-modal-contents"></div>
+  </div>
+  <div class="ui-modals-overlay js-modal-background-layer"></div>
+</script>

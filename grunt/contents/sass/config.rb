@@ -1,0 +1,10 @@
+http_path  = "/"
+css_dir    = "../public/css/"
+sass_dir   = "."
+images_dir = "static/images"
+javascripts_dir = "static"
+#output_style = :expanded
+#output_style = :compressed
+output_syle   = :nested
+line_comments = false
+cache         = true
