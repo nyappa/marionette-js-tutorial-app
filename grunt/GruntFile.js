@@ -10,11 +10,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('tests', ['jasmine']);
     grunt.registerTask('compile', [
-        //'newer:jshint',
-        //'concat:dist',
-        'concat:lib',
-        'concat:account',
-        'compass:dist',
-        //'jasmine'
+        'concat:main',
+        'compass:dist'
     ]);
 };
