@@ -2,7 +2,7 @@ Apps.module('Controller', function (Controller, App, Backbone, Marionette, $, _)
   Controller.set = Marionette.Controller.extend({
       lists : function(id) {
           var AppsCollection = new Apps.Model.AppsCollection,
-              layout         = new Apps.Views.ModerationLayout;
+              layout         = new Apps.Views.AppLayout;
           AppsCollection.fetch({
               data     : { "id" : id },
               method   : "GET",
@@ -17,13 +17,13 @@ Apps.module('Controller', function (Controller, App, Backbone, Marionette, $, _)
           });
       },
       add : function() {
-          var layout = new Apps.Views.ModerationLayout;
+          var layout = new Apps.Views.AppLayout;
           layout.pageContents.show(new Apps.Views.AddView({
               collection :  new Apps.Model.AppsCollection
           }));
       },
       detail : function(id) {
-          var layout          = new Apps.Views.ModerationLayout,
+          var layout          = new Apps.Views.AppLayout,
               textDetailModel = new Apps.Model.TextDetail;
           textDetailModel.fetch({
               data     : { "id" : id },

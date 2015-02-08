@@ -1,6 +1,6 @@
 Apps.module('Views', function (Views, App, Backbone, Marionette, $) {
 
-    Views.ModerationLayout = Backbone.Marionette.LayoutView.extend({
+    Views.AppLayout = Backbone.Marionette.LayoutView.extend({
         el: ".js-page-layout",
         regions: {
             pageContents: ".js-main"

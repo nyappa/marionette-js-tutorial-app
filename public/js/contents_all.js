@@ -16650,7 +16650,7 @@ Apps.module('Controller', function (Controller, App, Backbone, Marionette, $, _)
   Controller.set = Marionette.Controller.extend({
       lists : function(id) {
           var AppsCollection = new Apps.Model.AppsCollection,
-              layout         = new Apps.Views.ModerationLayout;
+              layout         = new Apps.Views.AppLayout;
           AppsCollection.fetch({
               data     : { "id" : id },
               method   : "GET",
@@ -16665,13 +16665,13 @@ Apps.module('Controller', function (Controller, App, Backbone, Marionette, $, _)
           });
       },
       add : function() {
-          var layout = new Apps.Views.ModerationLayout;
+          var layout = new Apps.Views.AppLayout;
           layout.pageContents.show(new Apps.Views.AddView({
               collection :  new Apps.Model.AppsCollection
           }));
       },
       detail : function(id) {
-          var layout          = new Apps.Views.ModerationLayout,
+          var layout          = new Apps.Views.AppLayout,
               textDetailModel = new Apps.Model.TextDetail;
           textDetailModel.fetch({
               data     : { "id" : id },
@@ -16728,7 +16728,7 @@ Apps.module('Route', function (Route, App, Backbone, Marionette, $, _) {
 
 Apps.module('Views', function (Views, App, Backbone, Marionette, $) {
 
-    Views.ModerationLayout = Backbone.Marionette.LayoutView.extend({
+    Views.AppLayout = Backbone.Marionette.LayoutView.extend({
         el: ".js-page-layout",
         regions: {
             pageContents: ".js-main"
