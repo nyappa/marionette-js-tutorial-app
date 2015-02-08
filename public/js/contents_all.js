@@ -16720,10 +16720,9 @@ Apps.module('Route', function (Route, App, Backbone, Marionette, $, _) {
     });
 
     Route.addInitializer(function () {
-        var router = new Route.Router({
+        Apps.router = new Route.Router({
             controller: new Apps.Controller.set()
         });
-        Apps.router = router;
     });
 });
 
@@ -16907,7 +16906,7 @@ Apps.module('Views', function (Views, App, Backbone, Marionette, $) {
             this.model.set({"text": text});
         },
         openWordDetail : function (e) {
-            var modal = new Modal.Views.Main({ collection: new AppWidgets.Model.ModalCollection });
+            var modal = new Modal.Views.Main({ collection: new Modal.Model.ModalCollection });
             modal.set({
                 top         : "10px",
                 viewAddData : {
@@ -16935,7 +16934,7 @@ Apps.module('Views', function (Views, App, Backbone, Marionette, $) {
             return false;
         },
         openOptions : function () {
-            var modal = new Modal.Views.Main({ collection: new AppWidgets.Model.ModalCollection });
+            var modal = new Modal.Views.Main({ collection: new Modal.Model.ModalCollection });
             modal.set({
                 top         : "10px",
                 viewAddData : {
@@ -16949,7 +16948,7 @@ Apps.module('Views', function (Views, App, Backbone, Marionette, $) {
             Modal.modal.show(modal);
         },
         openWordAdds : function () {
-            var modal = new Modal.Views.Main({ collection: new AppWidgets.Model.ModalCollection });
+            var modal = new Modal.Views.Main({ collection: new Modal.Model.ModalCollection });
             modal.set({
                 top         : "10px",
                 viewAddData : {
