@@ -9,7 +9,8 @@ module.exports = {
             "contents/js/lib/*.js",
             //contents
             "contents/js/common.js",
-            "contents/js/**/*.js"
+            "contents/js/**/*.js",
+            "!contents/js/app_back/*.js"
         ],
         dest: "../public/js/contents_all.js"
     }
