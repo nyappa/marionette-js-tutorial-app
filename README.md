@@ -65,8 +65,4 @@ grunt使用時は下記のフォルダで開発を行います。
 
 ### Tutorial ###
 
-Step-1
-Step-2
-Step-3
-Step-4
-Step-5
+[Step-1](https://github.com/nyappa/marionette-js-tutorial-app/blob/master/tutorial/Step-1.md) 初めてのHello World.

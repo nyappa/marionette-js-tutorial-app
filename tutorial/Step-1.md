@@ -4,7 +4,7 @@
 
 ## Step Goal ##
 
-**router** **controller** **view** を使って、画面に「hellow world」を表示させましょう。
+**router** **controller** **view** を使って、画面に「Hello World.」を表示させましょう。
 
 ## 準備 ##
 
