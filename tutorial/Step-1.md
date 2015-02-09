@@ -1,7 +1,5 @@
 # Marionette.js Tutorial Step.1 #
 
-注意：2015/02現在執筆中です。
-
 ## Step Goal ##
 
 **router** **controller** **view** を使って、画面に「Hello World.」を表示させましょう。
