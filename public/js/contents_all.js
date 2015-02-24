@@ -16667,7 +16667,7 @@ Apps.module('Controller', function (Controller, App, Backbone, Marionette, $, _)
       add : function() {
           var layout = new Apps.Views.AppLayout;
           layout.pageContents.show(new Apps.Views.AddView({
-              collection :  new Apps.Model.AppsCollection
+              model :  new Apps.Model.Apps
           }));
       },
       detail : function(id) {
@@ -16699,7 +16699,9 @@ Apps.module('Model', function (Model, App, Backbone) {
         url : '/words.json'
     });
     
-    Model.Apps            = Backbone.Model.extend({});
+    Model.Apps = Backbone.Model.extend({
+        url : '/generate_data.json'
+    });
     Model.AppsCollection  = Backbone.Collection.extend({
         model: Model.Apps,
         url : '/generate_data.json'
@@ -16971,7 +16973,7 @@ Apps.module('Views', function (Views, App, Backbone, Marionette, $) {
         },
         addEngText: function () {
             var that = this;
-            this.collection.fetch({
+            this.model.fetch({
                 data     : {
                     "title"  : that.$el.find("input[name=title]").val(),
                     "text"   : that.$el.find("textarea[name=text]").val(),

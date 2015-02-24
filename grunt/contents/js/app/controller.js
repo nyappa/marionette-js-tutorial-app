@@ -19,7 +19,7 @@ Apps.module('Controller', function (Controller, App, Backbone, Marionette, $, _)
       add : function() {
           var layout = new Apps.Views.AppLayout;
           layout.pageContents.show(new Apps.Views.AddView({
-              collection :  new Apps.Model.AppsCollection
+              model :  new Apps.Model.Apps
           }));
       },
       detail : function(id) {
