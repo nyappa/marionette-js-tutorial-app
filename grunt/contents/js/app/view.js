@@ -243,7 +243,7 @@ Apps.module('Views', function (Views, App, Backbone, Marionette, $) {
         },
         addEngText: function () {
             var that = this;
-            this.collection.fetch({
+            this.model.fetch({
                 data     : {
                     "title"  : that.$el.find("input[name=title]").val(),
                     "text"   : that.$el.find("textarea[name=text]").val(),

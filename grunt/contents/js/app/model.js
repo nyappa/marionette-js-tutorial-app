@@ -7,7 +7,9 @@ Apps.module('Model', function (Model, App, Backbone) {
         url : '/words.json'
     });
     
-    Model.Apps            = Backbone.Model.extend({});
+    Model.Apps = Backbone.Model.extend({
+        url : '/generate_data.json'
+    });
     Model.AppsCollection  = Backbone.Collection.extend({
         model: Model.Apps,
         url : '/generate_data.json'
