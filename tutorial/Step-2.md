@@ -1,6 +1,6 @@
 # Marionette.js Tutorial Step.2 #
 
-注意：2015/02現在執筆中です。
+[Step1へ](https://github.com/nyappa/marionette-js-tutorial-app/blob/master/tutorial/Step-2.md)
 
 ## Step Goal ##
 
@@ -97,7 +97,7 @@ modelファイルを追加すると以下の様になっているかと思いま
     Apps.module('Model', function (Model, App, Backbone) {
   
        Model.Apps = Backbone.Model.extend({
-           url : '/generate_data.json'
+           url : '/text_data.json'
        });
   
     });
@@ -203,16 +203,109 @@ this.$elにはView.Addが管理しているViewのオブジェクトが格納さ
 
 ## 登録データの表示 ##
 
-無事にデータの登録が完了しました。次に登録したデータを一覧で観覧できるようにしてみます。
+無事にデータの登録が完了しました。次に登録したデータを確認できるようにしましょう。
+
 
 ## viewの用意 ##
 
-データを表示するためのviewとテンプレートを用意します。
+データを表示するためのviewとテンプレートを用意します。 /views/index.erb に以下のテンプレートを追加しましょう。
 
-## collectionの作成 ##
+    <script type="text/template" id="data-detail-template">
+      <h1>
+         <a href="#" class="icon-undo">Go back to text List</a>
+      </h1>
+      <span class="menu icon-menu js-menu"></span>
+      <div class="main-box detail">
+        <h2 class="icon-{{status}} nico-status">{{title}}</h2>
+        <span class="main-text js-main-text">{{text}}</span>
+      </div>
+      <a href="#" class="js-add-word word add icon-plus"></a>
+    </script>
 
-データの一覧を表示するためにcollectionを作成します。
+{{}}　で囲まれた部分がmodelから渡されたデータを表示させる部分です。レスポンスに帰ってきたキー名を設定します。
 
-## データ一覧を表示 ##
+今回のViewはデータを表示するだけなのでテンプレートを指定するだけです。view.jsに下記を追加しましょう。
 
-最後にviewにcollectionを設定してデータの表示を確認しましょう。
+    Views.Detail = Marionette.ItemView.extend({
+        template : "#data-detail-template"
+    });
+
+## router,controllerの設定 ##
+
+controllerとrouterを記述していきましょう。 router.jsでappRoutesに新しく deail/:id を追加します。
+
+    Route.Router = Marionette.AppRouter.extend({
+        appRoutes: {
+            ''           : 'hello',
+            'add'        : 'add',
+            'detail/:id' : 'detail'
+        }
+    });
+
+/:id という形で指定するとその部分に入ってきたデータをコントローラー側のメソッドで引数として受け取ることができます。 今回追加した例だと、 detail/123 というアクセスだった場合は　detailメソッドの第一引数に 123 という値が渡されます。 次にcontrollerにメソッドを追加しましょう。
+
+    detail : function(id) {
+       var layout = new Apps.Views.AppLayout,
+           model  = new Apps.Model.App;
+       layout.pageContents.show(new Apps.Views.Detail({
+           model: model
+       }));
+    }
+
+通常ならこれで追加完了ですが、今回はサーバーから指定したデータを取得後にViewを表示しないといけないので、fetchを使ってデータを取得した後にViewの処理を書きます。
+
+    detail : function(id) {
+       var layout = new Apps.Views.AppLayout,
+           model  = new Apps.Model.App;
+       model.fetch({
+           data : {
+               "id" : id,
+           },
+           method   : "GET",
+           dataType : "json",
+           success  : function () {
+               layout.pageContents.show(new Apps.Views.Detail({
+                   model: model
+               }));
+           }
+       });
+    }
+
+fetchの際にサーバーに渡すデータは先ほどのrouterに設定した /:id によって引数に渡されてきているのでそれを使用します。　処理が成功した場合にViewを表示させるのでsuccessオプションの中にViewの処理を入れましょう。
+
+## 登録完了後に表示させる ##
+
+最後に、データ登録完了後にデータを確認できるように少し手を加えてみます。addDataのsuccessでレスポンスを受け取りそれを使って detail/:id に遷移させましょう。 編集後の全体像は以下の様になります。
+
+    Views.Add = Marionette.ItemView.extend({
+        template : "#add-template",
+        events: {
+            "click .js-add-data" : "addData"
+        },
+        addData: function () {
+             var that = this;
+             this.model.fetch({
+                 data : {
+                     "title"  : that.$el.find("input[name=title]").val(),
+                     "text"   : that.$el.find("textarea[name=text]").val(),
+                     "status" : "confused"
+                 },
+                 method   : "POST",
+                 dataType : "json",
+                 success  : function (res) { //引数を受け取るように
+                     //受け取った引数を使ってパスを作成
+                     Apps.router.navigate("/detail/"+ res.id , {trigger:true});
+                 }
+             });
+         }
+     });
+
+これで情報登録後にデータが表示されるようになったはずです。実際に動作を確認してみましょう。
+
+![](https://raw.githubusercontent.com/nyappa/marionette-js-tutorial-app/master/tutorial/image/add_data.png)
+
+↓
+
+![](https://raw.githubusercontent.com/nyappa/marionette-js-tutorial-app/master/tutorial/image/added.png)
+
+以上で単純なデータの表示まで終了です。Step3では一覧表示部分とデータの編集について説明していきます。

@@ -244,3 +244,5 @@ Views.Helloに設定したテンプレートのIDと同じhello-templateをIDに
 
 > 表示されない場合gruntのコンパイル忘れや、Sinatraの再起動忘れがないかなど
 > 確認してみてください。
+
+[Step2](https://github.com/nyappa/marionette-js-tutorial-app/blob/master/tutorial/Step-2.md) ではデータの登録と登録したデータの表示を説明していきます。
