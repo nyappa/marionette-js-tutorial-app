@@ -71,17 +71,17 @@ class MainApp < Sinatra::Base
     end
 
     # text codes
-    post'/generate_data.json' do
+    post'/text_data.json' do
         content_type :json
         eng        = ReadEngTexts.new
         eng.title  = @params[:title]
         eng.text   = @params[:text]
         eng.status = @params[:status]
         eng.save
-        ReadEngTexts.all.to_json
+        { :id => eng.id }.to_json
     end
 
-    patch'/text_detail.json' do
+    patch'/text_data.json' do
         content_type :json
         eng = ReadEngTexts.find(@params[:id])
         eng.status = @params[:status]
@@ -89,20 +89,20 @@ class MainApp < Sinatra::Base
         { :status => "sucsess" }.to_json
     end
 
-    get'/generate_data.json' do
-        content_type :json
-        ReadEngTexts.all.to_json
-    end
-
-    get '/text_detail.json' do
+    get '/text_data.json' do
         content_type :json
         ReadEngTexts.find(@params[:id]).to_json
     end
 
-    delete '/text_detail.json' do
+    delete '/text_data.json' do
         content_type :json
         ReadEngTexts.find(@params[:id]).delete
         { :status => "sucsess" }.to_json
+    end
+
+    get '/text_list.json' do
+        content_type :json
+        ReadEngTexts.all.to_json
     end
 
 end

@@ -1,10 +1,9 @@
 Apps.module('Controller', function (Controller, App, Backbone, Marionette, $, _) {
   Controller.set = Marionette.Controller.extend({
-      lists : function(id) {
+      lists : function() {
           var AppsCollection = new Apps.Model.AppsCollection,
               layout         = new Apps.Views.AppLayout;
           AppsCollection.fetch({
-              data     : { "id" : id },
               method   : "GET",
               dataType : "json",
               success  : function () {
@@ -19,19 +18,19 @@ Apps.module('Controller', function (Controller, App, Backbone, Marionette, $, _)
       add : function() {
           var layout = new Apps.Views.AppLayout;
           layout.pageContents.show(new Apps.Views.AddView({
-              model :  new Apps.Model.Apps
+              model :  new Apps.Model.App
           }));
       },
       detail : function(id) {
-          var layout          = new Apps.Views.AppLayout,
-              textDetailModel = new Apps.Model.TextDetail;
-          textDetailModel.fetch({
+          var layout   = new Apps.Views.AppLayout,
+              appModel = new Apps.Model.App;
+          appModel.fetch({
               data     : { "id" : id },
               method   : "GET",
               dataType : "json",
               success  : function () {
                   layout.pageContents.show(new Apps.Views.TextDetailView({
-                      model : textDetailModel
+                      model : appModel
                   }));
               },
               error    : function () {

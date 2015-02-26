@@ -16,7 +16,7 @@ Apps.module('Views', function (Views, App, Backbone, Marionette, $) {
         },
         changeStatus : function (e) {
             var that            = this,
-                textDetailModel = new Apps.Model.TextDetail;
+                textDetailModel = new Apps.Model.App;
             textDetailModel.fetch({
                 data : {
                     "id"     : this.model.get("id"),
@@ -35,7 +35,7 @@ Apps.module('Views', function (Views, App, Backbone, Marionette, $) {
         },
         deleteText : function () {
             var that            = this,
-                textDetailModel = new Apps.Model.TextDetail;
+                textDetailModel = new Apps.Model.App;
             textDetailModel.fetch({
                 data     : { "id" : this.model.get("id") },
                 method   : "DELETE",
