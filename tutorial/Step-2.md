@@ -22,7 +22,7 @@ modelをいじり始める前に、データを登録するためのフォーム
 次にテンプレートを用意しましょう。  
 index.erb の help-template の下に下記のテンプレートを追加します。
 
-    <script type="text/tmplate" id="add-template">
+    <script type="text/template" id="add-template">
       <h2 class="icon-plus">Data Adds</h2>
       <input type="text" name="title" placeholder="Title">
       <textarea name="text" placeholder="Text"></textarea>
@@ -58,7 +58,7 @@ index.erbへ行きhello-templateに add-template　それぞれ以下の様に�
       <a href="#" class="js-add-data">データ追加</a> //ここを追加
     </script>
 
-    <script type="text/tmplate" id="add-template">
+    <script type="text/template" id="add-template">
       <h2 class="icon-plus">Data Adds</h2>
       <input type="text" name="title" placeholder="Title">
       <textarea name="text" placeholder="Text"></textarea>
@@ -118,7 +118,7 @@ Backbone.Modelを継承したModel.Appsを作成しましょう。 今回はデ�
            add : function() {
               var layout = new Apps.Views.AppLayout;
               layout.pageContents.show(new Apps.Views.Add({
-                 model: new Apps.Model.App //ここを追加
+                 model: new Apps.Model.Apps //ここを追加
               }));
            }
        });
@@ -172,7 +172,8 @@ Views.Addにeventsを追加します。 イベントの登録とメソッドの�
 次にデータを登録する処理を書きましょう。 this.modelにある fetchメソッドを使うことでmodelに設定したurlに対して通信を行うことができます。主なオプションはjQueryの$.ajaxと同じです。
 
     addData: function () {
-         var title = that.$el.find("input[name=title]").val(),
+         var that  = this,
+             title = that.$el.find("input[name=title]").val(),
              text  = that.$el.find("textarea[name=text]").val();
          this.model.fetch({
              data : {
@@ -246,7 +247,7 @@ controllerとrouterを記述していきましょう。 router.jsでappRoutesに
 
     detail : function(id) {
        var layout = new Apps.Views.AppLayout,
-           model  = new Apps.Model.App;
+           model  = new Apps.Model.Apps;
        layout.pageContents.show(new Apps.Views.Detail({
            model: model
        }));
@@ -256,7 +257,7 @@ controllerとrouterを記述していきましょう。 router.jsでappRoutesに
 
     detail : function(id) {
        var layout = new Apps.Views.AppLayout,
-           model  = new Apps.Model.App;
+           model  = new Apps.Model.Apps;
        model.fetch({
            data : {
                "id" : id,
@@ -283,11 +284,13 @@ fetchの際にサーバーに渡すデータは先ほどのrouterに設定した
             "click .js-add-data" : "addData"
         },
         addData: function () {
-             var that = this;
+             var that  = this,
+                 title = that.$el.find("input[name=title]").val(),
+                 text  = that.$el.find("textarea[name=text]").val();
              this.model.fetch({
                  data : {
-                     "title"  : that.$el.find("input[name=title]").val(),
-                     "text"   : that.$el.find("textarea[name=text]").val(),
+                     "title"  : title,
+                     "text"   : text,
                      "status" : "confused"
                  },
                  method   : "POST",
