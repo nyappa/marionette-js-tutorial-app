@@ -172,13 +172,11 @@ Views.Addにeventsを追加します。 イベントの登録とメソッドの�
 次にデータを登録する処理を書きましょう。 this.modelにある fetchメソッドを使うことでmodelに設定したurlに対して通信を行うことができます。主なオプションはjQueryの$.ajaxと同じです。
 
     addData: function () {
-         var that  = this,
-             title = that.$el.find("input[name=title]").val(),
-             text  = that.$el.find("textarea[name=text]").val();
+         var that = this;
          this.model.fetch({
              data : {
-                 "title"  : title,
-                 "text"   : text,
+                 "title"  : that.$el.find("input[name=title]").val(),
+                 "text"   : that.$el.find("textarea[name=text]").val(),
                  "status" : "confused"
              },
              method   : "POST",
@@ -284,13 +282,11 @@ fetchの際にサーバーに渡すデータは先ほどのrouterに設定した
             "click .js-add-data" : "addData"
         },
         addData: function () {
-             var that  = this,
-                 title = that.$el.find("input[name=title]").val(),
-                 text  = that.$el.find("textarea[name=text]").val();
+             var that = this;
              this.model.fetch({
                  data : {
-                     "title"  : title,
-                     "text"   : text,
+                     "title"  : that.$el.find("input[name=title]").val(),
+                     "text"   : that.$el.find("textarea[name=text]").val(),
                      "status" : "confused"
                  },
                  method   : "POST",
