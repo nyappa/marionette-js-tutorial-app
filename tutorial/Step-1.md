@@ -116,7 +116,7 @@ appRoutesの中に記述してある連想配列がルーティングの設定�
           });
 
           Route.addInitializer(function () {
-            Apps.route = new Route.Router({
+            Apps.router = new Route.Router({
                controller: new Apps.Controller.set()
             });
           });
@@ -125,7 +125,7 @@ appRoutesの中に記述してある連想配列がルーティングの設定�
 
 
 
-先ほど定義したRoute.Routerをインスタンス化してApps.routeに格納します。
+先ほど定義したRoute.Routerをインスタンス化してApps.routerに格納します。
 引数に controller を渡していますがこのcontrollerは次項で作成します。
 
 ## controller.js ##
